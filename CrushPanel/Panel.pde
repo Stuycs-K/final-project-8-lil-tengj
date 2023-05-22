@@ -4,8 +4,8 @@ public class Panel{
   private Candy[][] board;
   private boolean objective;
   
-  public CrushPanel (){
-    board = Candy[20][20];
+  public Panel (){
+    board = new Candy[20][20];
     objective = false;
   }
   
