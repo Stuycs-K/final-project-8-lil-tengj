@@ -11,6 +11,7 @@ public class Panel{
     row = r;
     col = c;
     objective = false;
+    fillPanel();
   }
   
   public int getRow(){
@@ -38,6 +39,7 @@ public class Panel{
   private void swapCandy(){
     
   }
+  
   
   
   
