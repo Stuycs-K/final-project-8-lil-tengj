@@ -4,6 +4,7 @@ void setup(){
   size(515, 515);
   crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE);
   //crushP = new Panel(5,5);
+  System.out.println(crushP);
 }
 
 

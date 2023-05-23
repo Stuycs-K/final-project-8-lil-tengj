@@ -40,6 +40,20 @@ public class Panel{
     
   }
   
+  public String toString(){
+    String result = "";
+    for (int i = 0; i < board.length; i++){
+      for (int j = 0; j < board.length; j++){
+        result += board[i][j].getName();
+        
+        if(j == board.length-1) result += "\n";
+        else{
+          result+= ", ";
+        }
+      }
+    }
+    return result;
+  }
   
   
   
