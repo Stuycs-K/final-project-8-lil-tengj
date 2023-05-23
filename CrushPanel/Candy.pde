@@ -22,5 +22,6 @@ public class Candy{
     }
     if(name.equals("purple")){
     }
+    return 0;
   }
 }
