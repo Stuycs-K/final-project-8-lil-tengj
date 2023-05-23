@@ -3,11 +3,27 @@ import java.util.*;
 public class Panel{
   private Candy[][] board;
   private boolean objective;
+  private int row;
+  private int col;
   
-  public Panel (){
-    board = new Candy[20][20];
+  public Panel(int r, int c){
+    board = new Candy[r][c];
+    row = r;
+    col = c;
     objective = false;
   }
+  
+  public int getRow(){
+    return row;
+  }
+  
+  public int getCol(){
+    return col;
+  }
+  
+  public Candy getCandy(int r, int c){
+    return board[r][c];
+  }  
   
   private void fillPanel(){
     String [] names = {"red", "blue", "orange", "yellow", "purple"};
