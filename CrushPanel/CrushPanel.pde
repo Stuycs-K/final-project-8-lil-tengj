@@ -23,22 +23,7 @@ void grid(Panel crushP) {
         y=0;
       }
         Candy c = crushP.getCandy(x,y);
-        if(c.getName().equals("red")){
-          fill(100);
-        }
-        
-        if(c.getName().equals("purple")){
-          fill(0);
-        }
-        if(c.getName().equals("yellow")){
-          fill(10);
-        }
-        if(c.getName().equals("blue")){
-          fill(100);
-        }
-        if(c.getName().equals("orange")){
-          fill(200);
-        }
+        c.buildCandy();
         rect(i, j, SQUARE_SIZE, SQUARE_SIZE);
         x++;
     }
