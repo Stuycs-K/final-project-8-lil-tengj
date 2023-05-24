@@ -1,9 +1,12 @@
 Panel crushP;
 static final int SQUARE_SIZE = 100;//this is a constant.
+int draggedCol;
+int draggedRow;
 void setup(){
   size(515, 515);
   crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE);
   //crushP = new Panel(5,5);
+  System.out.println(crushP);
 }
 
 
@@ -29,6 +32,28 @@ void grid(Panel crushP) {
     }
     y++;
   }
+}
+
+void mousePressed(){
+  int col = (mouseX -15) / SQUARE_SIZE;
+  int row = (mouseY -15)/ SQUARE_SIZE;
+  if (col >= 0 && col < crushP.getCol()&& row >= 0 && row < crushP.getRow()) {
+    draggedCol = col;
+    draggedRow = row;
+  }
+}
+
+void mouseDragged() {
+  int col = (mouseX-15) / SQUARE_SIZE;
+  int row = (mouseY-15) / SQUARE_SIZE;
+  
+  if (col >= 0 && col < crushP.getCol() && row >= 0 && row < crushP.getRow()) {
+    if(row == draggedRow+1 || row ==draggedRow -1 ||
+    col == draggedCol+1 || col ==draggedCol -1)
+    crushP.swapCandy(draggedRow, draggedCol, row, col);
+   }
+    draggedCol = col;
+    draggedRow = row;
 }
 
 
