@@ -82,6 +82,25 @@ public class Panel{
     return result;
   }
   
-  
+  public void eliminate (){
+    for (int i = 0; i < board.length - 2; i++){
+      for (int j = 0; j < board[0].length - 2; j++){
+        if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
+            board[i][j].getName().equals(board[i + 2][j].getName())){ //3 in a col
+            board[i][j] = new Candy ("blank");
+            board[i + 1][j] = new Candy ("blank");
+            board[i + 2][j] = new Candy ("blank");
+            }
+         if (board[i][j].getName().equals(board[i][j + 1].getName()) && 
+            board[i][j].getName().equals(board[i][j + 2].getName())){ //3 in a row
+            board[i][j] = new Candy ("blank");
+            board[i][j + 1] = new Candy ("blank");
+            board[i][j + 2] = new Candy ("blank");
+            }
+            println(toString());
+      }
+    }
+    
+  }
   
 }

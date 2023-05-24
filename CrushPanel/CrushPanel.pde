@@ -59,4 +59,5 @@ void mouseDragged() {
 
 void draw(){
   grid(crushP);
+  crushP.eliminate();
 }
