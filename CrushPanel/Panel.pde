@@ -42,8 +42,12 @@ public class Panel{
     
   }
   
-  private void swapCandy(){
-    
+  public void swapCandy(int row1, int col1, int row2, int col2){
+     if (col1 >= 0 && col1 < getCol() && row1 >= 0 && row1 < getRow() &&
+     col2 >= 0 && col2 <getCol() && row2 >= 0 && row2 < getRow()) {
+    Candy cur = board[row1][col1];
+    board[row1][col1] = board[row2][col2];
+    board[row2][col2] = cur;}
   }
   
   public String toString(){
