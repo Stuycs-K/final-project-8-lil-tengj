@@ -2,7 +2,6 @@ Panel crushP;
 static final int SQUARE_SIZE = 100;//this is a constant.
 int draggedCol;
 int draggedRow;
-int countdown;
 void setup(){
   size(515, 515);
   crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE);
@@ -28,7 +27,18 @@ void grid(Panel crushP) {
       }
         Candy c = crushP.getCandy(x,y);
         c.buildCandy();
-        rect(i, j, SQUARE_SIZE, SQUARE_SIZE);
+        //if(c.getName().equals("red")){
+        //rect(i, j, SQUARE_SIZE-10, SQUARE_SIZE-20);}
+        //if(c.getName().equals("blue")){
+        //rect(i, j, SQUARE_SIZE-10, SQUARE_SIZE-10);}
+        //if(c.getName().equals("yellow")){
+        //circle(i, j, SQUARE_SIZE-10);}
+        //if(c.getName().equals("purple")){
+        //ellipse(i, j, SQUARE_SIZE-10, SQUARE_SIZE-20);}
+        //if(c.getName().equals("orange")){
+        //triangle(i+SQUARE_SIZE-50, j, i-SQUARE_SIZE+50, j, i, j-SQUARE_SIZE+30);}
+        rect(i, j, SQUARE_SIZE-10, SQUARE_SIZE-10);
+
         x++;
     }
     y++;
@@ -47,29 +57,17 @@ void mousePressed(){
 void mouseDragged() {
   int col = (mouseX-15) / SQUARE_SIZE;
   int row = (mouseY-15) / SQUARE_SIZE;
+  
   if (col >= 0 && col < crushP.getCol() && row >= 0 && row < crushP.getRow()) {
     if(row == draggedRow+1 || row ==draggedRow -1 ||
     col == draggedCol+1 || col ==draggedCol -1)
-      if(countdown ==0){
-
     crushP.swapCandy(draggedRow, draggedCol, row, col);
-        countdown += 60;
-  }
    }
     draggedCol = col;
     draggedRow = row;
-    
-
 }
 
 
 void draw(){
   grid(crushP);
-  if(countdown > 0){
-    countdown--;
-    //System.out.println(countdown);
-  }
-  crushP.eliminate();
-  crushP.moveDown();
-  
 }
