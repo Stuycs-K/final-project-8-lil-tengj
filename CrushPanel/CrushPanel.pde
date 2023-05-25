@@ -71,5 +71,6 @@ void draw(){
   }
   crushP.eliminate();
   crushP.moveDown();
+  crushP.dropNew();
   
 }
