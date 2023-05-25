@@ -82,6 +82,20 @@ public class Panel{
     return result;
   }
   
-  
+  public void moveDown(){
+    for (int i = board.length-1; i >= 0 ; i--){
+      for (int j = board.length -1; j >=0; j--){
+        if(board[i][j].getName().equals("blank")){
+          for(int p = j-1; p>=0; p-- ){
+            if(!board[i][p].getName().equals("blank")){
+              board[i][j] = board[i][p];
+              board[i][p] = new Candy("blank");
+              p = -1;
+            }
+          }
+        }
+      }
+    }
+  }
   
 }
