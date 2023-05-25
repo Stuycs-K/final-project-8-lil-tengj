@@ -27,5 +27,8 @@ public class Candy{
     if(name.equals("purple")){
       fill(255,0,255);
     }
+    if(name.equals("blank")){
+      fill(255);
+    }
   }
 }
