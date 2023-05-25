@@ -70,4 +70,6 @@ void draw(){
     //System.out.println(countdown);
   }
   crushP.eliminate();
+  crushP.moveDown();
+  
 }
