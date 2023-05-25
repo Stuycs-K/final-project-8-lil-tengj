@@ -64,6 +64,7 @@ void mouseDragged() {
 
 
 void draw(){
+  
   grid(crushP);
   if(countdown > 0){
     countdown--;

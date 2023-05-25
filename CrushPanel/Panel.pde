@@ -2,7 +2,6 @@ import java.util.*;
 
 public class Panel{
   private Candy[][] board;
-  private boolean objective;
   private int row;
   private int col;
   
@@ -10,7 +9,6 @@ public class Panel{
     board = new Candy[r][c];
     row = r;
     col = c;
-    objective = false;
     fillPanel();
   }
   
@@ -207,6 +205,6 @@ public class Panel{
             //println(toString());
       }
     }
-  }
+  }  
   
 }
