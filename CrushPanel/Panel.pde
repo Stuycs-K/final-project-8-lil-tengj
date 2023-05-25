@@ -101,6 +101,7 @@ public class Panel{
       }
     }
   }
+  
   public void eliminate (){
     for (int i = 0; i < board.length - 2; i++){
       for (int j = 0; j < board[0].length; j++){
@@ -125,6 +126,24 @@ public class Panel{
       }
     }
     
+  }
+  
+  
+  
+  public void dropNew(){
+    for(int i = 0; i < board.length; i ++){
+      for(int j = 0; j < board[0].length; j++){
+        if(board[i][j].getName().equals("blank")){
+          ArrayList <String> names = new ArrayList <String> ();
+          names.add("red");
+          names.add("orange");
+          names.add("yellow");
+          names.add("blue");
+          names.add("purple");
+          board[i][j] = new Candy(names.get((int)(Math.random() * 5)));
+        }
+      }
+    }
   }
   
 }
