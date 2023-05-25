@@ -69,4 +69,5 @@ void draw(){
     countdown--;
     //System.out.println(countdown);
   }
+  crushP.eliminate();
 }
