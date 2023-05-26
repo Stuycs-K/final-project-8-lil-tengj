@@ -130,14 +130,7 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
             result = true;
-=======
-            one.addScore(3);
->>>>>>> 077c0a7ca8b4558533a7199acc87d8e4201efcb1
->>>>>>> b7a3767e5603a8209f03b95f4de62333acfaec2d
             }
             //println(toString());
       }
@@ -193,14 +186,7 @@ public class Panel{
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
             board[i][j + 3] = new Candy ("blank");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
             result = true;
-=======
-            one.addScore(4);
->>>>>>> 077c0a7ca8b4558533a7199acc87d8e4201efcb1
->>>>>>> b7a3767e5603a8209f03b95f4de62333acfaec2d
          }
       }
       
@@ -242,22 +228,11 @@ public class Panel{
            board[i][j + 2] = new Candy ("blank");
            board[i][j + 3] = new Candy ("blank");
            board[i][j + 4] = new Candy ("blank");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
            result = true;
-=======
-           one.addScore(5);
->>>>>>> 077c0a7ca8b4558533a7199acc87d8e4201efcb1
->>>>>>> b7a3767e5603a8209f03b95f4de62333acfaec2d
          }
       }
     }
-<<<<<<< HEAD
     return result;
   }
-=======
-  }  
->>>>>>> 077c0a7ca8b4558533a7199acc87d8e4201efcb1
   
 }

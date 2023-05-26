@@ -76,23 +76,16 @@ void draw(){
     countdown--;
     //System.out.println(countdown);
   }
-<<<<<<< HEAD
+  
 if(!crushP.eliminate()){ crushP.swapCandy(swappedRow,swappedCol , draggedRow, draggedCol);
  }
  crushP.moveDown();
   //crushP.dropNew();
-=======
   crushP.eliminate();
   crushP.moveDown();
   crushP.dropNew();
-<<<<<<< HEAD
   if (crushP.one.passLevel()){
     background(255);
     text("congrats!", 250, 250);
   }
-=======
-  println(crushP.one.passLevel());
->>>>>>> 077c0a7ca8b4558533a7199acc87d8e4201efcb1
->>>>>>> b7a3767e5603a8209f03b95f4de62333acfaec2d
-  
 }
