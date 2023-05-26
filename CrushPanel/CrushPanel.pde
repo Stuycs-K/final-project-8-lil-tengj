@@ -73,6 +73,9 @@ void draw(){
   crushP.eliminate();
   crushP.moveDown();
   crushP.dropNew();
-  println(crushP.one.passLevel());
+  if (crushP.one.passLevel()){
+    background(255);
+    text("congrats!", 250, 250);
+  }
   
 }

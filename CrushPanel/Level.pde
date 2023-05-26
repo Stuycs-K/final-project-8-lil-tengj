@@ -21,8 +21,8 @@ public class Level{
       return objective;
     }
     
-    public Candy getType(){
-      return type;
+    public String getType(){
+      return type.getName();
     }
     
     public int addScore(int num){
