@@ -5,7 +5,7 @@ int draggedRow;
 int countdown;
 void setup(){
   size(515, 515);
-  crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE);
+  crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, 10, new Candy("blue"));
   //crushP = new Panel(5,5);
   System.out.println(crushP);
 }
@@ -73,5 +73,6 @@ void draw(){
   crushP.eliminate();
   crushP.moveDown();
   crushP.dropNew();
+  println(crushP.one.passLevel());
   
 }

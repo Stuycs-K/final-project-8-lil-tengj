@@ -4,11 +4,13 @@ public class Panel{
   private Candy[][] board;
   private int row;
   private int col;
+  private Level one;
   
-  public Panel(int r, int c){
+  public Panel(int r, int c, int howMany, Candy flavour){
     board = new Candy[r][c];
     row = r;
     col = c;
+    one = new Level (howMany, flavour);
     fillPanel();
   }
   
@@ -110,6 +112,7 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i + 1][j] = new Candy ("blank");
             board[i + 2][j] = new Candy ("blank");
+            one.addScore(3);
             }
             //println(toString());
       }
@@ -121,6 +124,7 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
+            one.addScore(3);
             }
             //println(toString());
       }
@@ -155,6 +159,7 @@ public class Panel{
            board[i + 1][j] = new Candy ("blank");
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
+           one.addScore(4);
         }
             //println(toString());
       }
@@ -168,6 +173,7 @@ public class Panel{
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
             board[i][j + 3] = new Candy ("blank");
+            one.addScore(4);
          }
             //println(toString());
       }
@@ -186,6 +192,7 @@ public class Panel{
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
            board[i + 4][j] = new Candy ("blank");
+           one.addScore(5);
         }
             //println(toString());
       }
@@ -201,6 +208,7 @@ public class Panel{
            board[i][j + 2] = new Candy ("blank");
            board[i][j + 3] = new Candy ("blank");
            board[i][j + 4] = new Candy ("blank");
+           one.addScore(5);
          }
             //println(toString());
       }

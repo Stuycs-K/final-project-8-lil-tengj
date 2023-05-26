@@ -25,6 +25,10 @@ public class Level{
       return type;
     }
     
+    public int addScore(int num){
+      return candiesCrushed += num;
+    }
+    
     private boolean passLevel(){
       if (candiesCrushed >= objective){
         win = true;
