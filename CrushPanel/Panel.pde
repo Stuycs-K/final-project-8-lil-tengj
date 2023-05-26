@@ -110,10 +110,12 @@ public class Panel{
       for (int j = 0; j < board[0].length; j++){
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
             board[i][j].getName().equals(board[i + 2][j].getName())){ //3 in a col
+            if (board[i][j].getName().equals(one.getType())){
+              one.addScore(3);
+            }
             board[i][j] = new Candy ("blank");
             board[i + 1][j] = new Candy ("blank");
             board[i + 2][j] = new Candy ("blank");
-            one.addScore(3);
             }
         else result = false;
       }
@@ -122,11 +124,14 @@ public class Panel{
       for (int j = 0; j < board[0].length - 2; j++){
          if (board[i][j].getName().equals(board[i][j + 1].getName()) && 
             board[i][j].getName().equals(board[i][j + 2].getName())){ //3 in a row
+             if (board[i][j].getName().equals(one.getType())){
+              one.addScore(3);
+            }
             board[i][j] = new Candy ("blank");
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
+
             result = true;
-            one.addScore(3);
             }
             //println(toString());
       }
@@ -159,11 +164,13 @@ public class Panel{
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
             board[i][j].getName().equals(board[i + 2][j].getName()) &&
             board[i][j].getName().equals(board[i + 3][j].getName())){ //4 in a col
+           if (board[i][j].getName().equals(one.getType())){
+              one.addScore(4);
+            }
            board[i][j] = new Candy ("blank");
            board[i + 1][j] = new Candy ("blank");
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
-           one.addScore(4);
         }
         else result = false;
       }
@@ -173,12 +180,16 @@ public class Panel{
          if (board[i][j].getName().equals(board[i][j + 1].getName()) && 
              board[i][j].getName().equals(board[i][j + 2].getName()) &&
              board[i][j].getName().equals(board[i][j + 3].getName())){ //4 in a row
+            if (board[i][j].getName().equals(one.getType())){
+              one.addScore(4);
+            }
             board[i][j] = new Candy ("blank");
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
             board[i][j + 3] = new Candy ("blank");
+
             result = true;
-            one.addScore(4);
+
          }
       }
       
@@ -194,12 +205,14 @@ public class Panel{
             board[i][j].getName().equals(board[i + 2][j].getName()) &&
             board[i][j].getName().equals(board[i + 3][j].getName()) &&
             board[i][j].getName().equals(board[i + 4][j].getName())){ //5 in a col
+            if (board[i][j].getName().equals(one.getType())){
+              one.addScore(5);
+            }
            board[i][j] = new Candy ("blank");
            board[i + 1][j] = new Candy ("blank");
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
            board[i + 4][j] = new Candy ("blank");
-           one.addScore(5);
         }
         else result = false;
       }
@@ -210,13 +223,16 @@ public class Panel{
              board[i][j].getName().equals(board[i][j + 2].getName()) &&
              board[i][j].getName().equals(board[i][j + 3].getName()) &&
              board[i][j].getName().equals(board[i][j + 4].getName())){ //5 in a row
+            if (board[i][j].getName().equals(one.getType())){
+              one.addScore(5);
+            }
            board[i][j] = new Candy ("blank");
            board[i][j + 1] = new Candy ("blank");
            board[i][j + 2] = new Candy ("blank");
            board[i][j + 3] = new Candy ("blank");
            board[i][j + 4] = new Candy ("blank");
            result = true;
-           one.addScore(5);
+
          }
       }
     }
