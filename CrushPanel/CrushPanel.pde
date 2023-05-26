@@ -1,5 +1,7 @@
 Panel crushP;
 static final int SQUARE_SIZE = 100;//this is a constant.
+int swappedCol;
+int swappedRow;
 int draggedCol;
 int draggedRow;
 int countdown;
@@ -53,9 +55,13 @@ void mouseDragged() {
       if(countdown ==0){
 
     crushP.swapCandy(draggedRow, draggedCol, row, col);
+    System.out.println(crushP.eliminate());
+    
         countdown += 60;
   }
    }
+    swappedCol = draggedCol;
+    swappedRow = draggedRow;
     draggedCol = col;
     draggedRow = row;
     
@@ -69,8 +75,9 @@ void draw(){
     countdown--;
     //System.out.println(countdown);
   }
-  crushP.eliminate();
-  crushP.moveDown();
-  crushP.dropNew();
+if(!crushP.eliminate()){ crushP.swapCandy(swappedRow,swappedCol , draggedRow, draggedCol);
+ }
+ crushP.moveDown();
+  //crushP.dropNew();
   
 }
