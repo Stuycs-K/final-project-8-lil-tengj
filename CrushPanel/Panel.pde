@@ -2,15 +2,15 @@ import java.util.*;
 
 public class Panel{
   private Candy[][] board;
-  private boolean objective;
   private int row;
   private int col;
+  private Level one;
   
-  public Panel(int r, int c){
+  public Panel(int r, int c, int howMany, Candy flavour){
     board = new Candy[r][c];
     row = r;
     col = c;
-    objective = false;
+    one = new Level (howMany, flavour);
     fillPanel();
   }
   
@@ -101,9 +101,10 @@ public class Panel{
       }
     }
   }
+  
   public void eliminate (){
-    eliminate4();
     eliminate5();
+    eliminate4();
     for (int i = 0; i < board.length - 2; i++){
       for (int j = 0; j < board[0].length; j++){
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
@@ -111,6 +112,7 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i + 1][j] = new Candy ("blank");
             board[i + 2][j] = new Candy ("blank");
+            one.addScore(3);
             }
             //println(toString());
       }
@@ -122,6 +124,7 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
+            one.addScore(3);
             }
             //println(toString());
       }
@@ -129,6 +132,23 @@ public class Panel{
     
   }
   
+  
+  
+  public void dropNew(){
+    for(int i = 0; i < board.length; i ++){
+      for(int j = 0; j < board[0].length; j++){
+        if(board[i][j].getName().equals("blank")){
+          ArrayList <String> names = new ArrayList <String> ();
+          names.add("red");
+          names.add("orange");
+          names.add("yellow");
+          names.add("blue");
+          names.add("purple");
+          board[i][j] = new Candy(names.get((int)(Math.random() * 5)));
+        }
+        
+      }}}
+
   private void eliminate4 (){
     for (int i = 0; i < board.length -3; i++){
       for (int j = 0; j < board[0].length; j++){
@@ -139,6 +159,7 @@ public class Panel{
            board[i + 1][j] = new Candy ("blank");
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
+           one.addScore(4);
         }
             //println(toString());
       }
@@ -152,6 +173,7 @@ public class Panel{
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
             board[i][j + 3] = new Candy ("blank");
+            one.addScore(4);
          }
             //println(toString());
       }
@@ -170,6 +192,7 @@ public class Panel{
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
            board[i + 4][j] = new Candy ("blank");
+           one.addScore(5);
         }
             //println(toString());
       }
@@ -185,10 +208,11 @@ public class Panel{
            board[i][j + 2] = new Candy ("blank");
            board[i][j + 3] = new Candy ("blank");
            board[i][j + 4] = new Candy ("blank");
+           one.addScore(5);
          }
             //println(toString());
       }
     }
-  }
+  }  
   
 }
