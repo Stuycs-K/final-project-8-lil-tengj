@@ -55,8 +55,10 @@ void mouseDragged() {
       if(countdown ==0){
 
     crushP.swapCandy(draggedRow, draggedCol, row, col);
-    System.out.println(crushP.eliminate());
-    
+    boolean swap = crushP.eliminate();
+    System.out.println(swap);
+    if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
+ }
         countdown += 60;
   }
    }
@@ -76,13 +78,11 @@ void draw(){
     countdown--;
     //System.out.println(countdown);
   }
-  
-if(!crushP.eliminate()){ crushP.swapCandy(swappedRow,swappedCol , draggedRow, draggedCol);
- }
+
  crushP.moveDown();
   //crushP.dropNew();
   crushP.eliminate();
-  crushP.moveDown();
+  //println(crushP.one.passLevel());  
   crushP.dropNew();
   if (crushP.one.passLevel()){
     background(255);
