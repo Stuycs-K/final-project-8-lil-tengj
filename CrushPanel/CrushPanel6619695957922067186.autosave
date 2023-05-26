@@ -5,9 +5,10 @@ int swappedRow;
 int draggedCol;
 int draggedRow;
 int countdown;
+boolean swap;
 void setup(){
   size(515, 515);
-  crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, 10, new Candy("blue"));
+  crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE);
   //crushP = new Panel(5,5);
   System.out.println(crushP);
 }
@@ -55,11 +56,13 @@ void mouseDragged() {
       if(countdown ==0){
 
     crushP.swapCandy(draggedRow, draggedCol, row, col);
-    System.out.println(crushP.eliminate());
     
         countdown += 60;
   }
    }
+   swap = crushP.eliminate();
+   System.out.println(swap);
+   if(!swap){crushP.swapCandy(row,col , draggedRow, draggedCol);}
     swappedCol = draggedCol;
     swappedRow = draggedRow;
     draggedCol = col;
@@ -70,22 +73,13 @@ void mouseDragged() {
 
 
 void draw(){
-  
   grid(crushP);
   if(countdown > 0){
     countdown--;
     //System.out.println(countdown);
   }
-<<<<<<< HEAD
-if(!crushP.eliminate()){ crushP.swapCandy(swappedRow,swappedCol , draggedRow, draggedCol);
- }
+ crushP.eliminate();
  crushP.moveDown();
   //crushP.dropNew();
-=======
-  crushP.eliminate();
-  crushP.moveDown();
-  crushP.dropNew();
-  println(crushP.one.passLevel());
->>>>>>> 077c0a7ca8b4558533a7199acc87d8e4201efcb1
   
 }
