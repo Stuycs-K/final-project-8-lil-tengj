@@ -105,6 +105,12 @@ void mouseDragged() {
 
 }
 
+void keyPressed(){
+  if (key == 'r'){
+    crushP.fillPanel();
+  }
+}
+
 
 void draw(){
 

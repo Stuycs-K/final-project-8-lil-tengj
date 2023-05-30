@@ -117,6 +117,7 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i + 1][j] = new Candy ("blank");
             board[i + 2][j] = new Candy ("blank");
+            break;
             }
         else result = false;
       }
@@ -132,6 +133,7 @@ public class Panel{
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
             result = true;
+            break;
             }
             //println(toString());
       }
@@ -172,6 +174,7 @@ public class Panel{
            board[i + 1][j] = new Candy ("blank");
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
+           break;
         }
         else result = false;
       }
@@ -189,6 +192,7 @@ public class Panel{
             board[i][j + 2] = new Candy ("blank");
             board[i][j + 3] = new Candy ("blank");
             result = true;
+            break;
          }
       }
       
@@ -212,6 +216,7 @@ public class Panel{
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
            board[i + 4][j] = new Candy ("blank");
+           break;
         }
         else result = false;
       }
@@ -231,6 +236,7 @@ public class Panel{
            board[i][j + 3] = new Candy ("blank");
            board[i][j + 4] = new Candy ("blank");
            result = true;
+           break;
          }
       }
     }
