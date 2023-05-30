@@ -33,10 +33,11 @@ public class Panel{
     names.add("yellow");
     names.add("blue");
     names.add("purple");
+    names.add("green");
     //fill board with randomly generated candiess
     for (int i = 0; i < board.length; i++){
       for (int j = 0; j < board.length; j++){
-        board[i][j] = new Candy(names.get((int)(Math.random() * 5)));
+        board[i][j] = new Candy(names.get((int)(Math.random() * 6)));
       }
     }
     for (int i = 0; i < board.length - 2; i++){
@@ -104,8 +105,8 @@ public class Panel{
   
   public boolean eliminate (){
     boolean result = true;
-    if(eliminate5()) return true;
-    if(eliminate4()) return true;;
+    if(eliminate5()) result = true;
+    if(eliminate4()) result = true;;
     for (int i = 0; i < board.length - 2; i++){
       for (int j = 0; j < board[0].length; j++){
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
@@ -130,7 +131,6 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
-
             result = true;
             }
             //println(toString());
@@ -151,7 +151,8 @@ public class Panel{
           names.add("yellow");
           names.add("blue");
           names.add("purple");
-          board[i][j] = new Candy(names.get((int)(Math.random() * 5)));
+          names.add("green");
+          board[i][j] = new Candy(names.get((int)(Math.random() * 6)));
         }
       }
     }
@@ -187,9 +188,7 @@ public class Panel{
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
             board[i][j + 3] = new Candy ("blank");
-
             result = true;
-
          }
       }
       
@@ -232,12 +231,10 @@ public class Panel{
            board[i][j + 3] = new Candy ("blank");
            board[i][j + 4] = new Candy ("blank");
            result = true;
-
          }
       }
     }
     return result;
   }
-
   
 }
