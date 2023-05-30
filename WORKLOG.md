@@ -1,22 +1,52 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Lisa Li
 
-### date x
+### May 22nd
 
-info
+Panel Class with constructors and some methods
 
-### date y
+### May 23rd
 
-info
+fillPanel() method and get() method
 
+### May 24th
 
-## GROUP MEMBER 2
+eliminate() method
 
-### date x
+### May 25th
 
-info
+eliminate4,5() method; Level Class
 
-### date y
+### May 26th
 
-info
+instantiated level in Panel; add score() method
+
+### May 29th
+displaying score and goal
+
+## Juntao Teng
+
+### May 22nd
+
+Candy Class with constructors and some methods
+
+### May 23rd
+
+Panel toString(); draw() Panel
+
+### May 24th
+
+Candy swap() method; moveDown() inprogress
+
+### May 25th
+
+moveDown(); dropNew() methods
+
+### May 26th
+
+solving merge conflict; swap back buildin;
+
+### May 29th
+
+images added
