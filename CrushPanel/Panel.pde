@@ -106,7 +106,7 @@ public class Panel{
   public boolean eliminate (){
     boolean result = true;
     if(eliminate5()) result = true;
-    if(eliminate4()) result = true;;
+    if(eliminate4()) result = true;
     for (int i = 0; i < board.length - 2; i++){
       for (int j = 0; j < board[0].length; j++){
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 

@@ -107,12 +107,15 @@ void mouseDragged() {
 
 
 void draw(){
-  
+
   grid(crushP);
   //if(countdown > 0){
   //  countdown--;
   //  //System.out.println(countdown);
   //}
+  fill(0);
+    text("GOAL: " + crushP.one.getObjective() + " " + crushP.one.getType(), 0, 610);
+  text("SCORE: " + crushP.one.getScore(), 300, 610);
 
  crushP.moveDown();
   crushP.eliminate();
