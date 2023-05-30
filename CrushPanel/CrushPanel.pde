@@ -5,8 +5,11 @@ int swappedRow;
 int draggedCol;
 int draggedRow;
 int countdown;
+
 void setup(){
-  size(515, 515);
+  
+
+  size(615, 615);
   crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, 10, new Candy("blue"));
   //crushP = new Panel(5,5);
   System.out.println(crushP);
@@ -14,6 +17,18 @@ void setup(){
 
 
 void grid(Panel crushP) {
+  PImage blueC = loadImage("blueC.png");
+  blueC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  PImage redC = loadImage("redC.png");
+  redC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  PImage orangeC = loadImage("orangeC.png");
+  orangeC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  PImage yellowC = loadImage("yellowC.png");
+  yellowC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  PImage greenC = loadImage("greenC.png");
+  greenC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  PImage purpleC = loadImage("purpleC.png");
+  purpleC.resize(SQUARE_SIZE,SQUARE_SIZE);
   background(255);
   //fill(0);
   stroke(255);
@@ -29,12 +44,31 @@ void grid(Panel crushP) {
         y=0;
       }
         Candy c = crushP.getCandy(x,y);
-        c.buildCandy();
-        rect(i, j, SQUARE_SIZE, SQUARE_SIZE);
+        if(c.getName().equals("blue")){
+          image(blueC, i, j);
+        }
+         if(c.getName().equals("red")){
+          image(redC, i, j);
+        }
+         if(c.getName().equals("yellow")){
+          image(yellowC, i, j);
+        }
+         if(c.getName().equals("green")){
+          image(greenC, i, j);
+        }
+         if(c.getName().equals("purple")){
+          image(purpleC, i, j);
+        }
+         if(c.getName().equals("orange")){
+          image(orangeC, i, j);
+        }
+        //c.buildCandy();
+        //rect(i, j, SQUARE_SIZE, SQUARE_SIZE);
         x++;
     }
     y++;
   }
+
 }
 
 void mousePressed(){
@@ -52,15 +86,16 @@ void mouseDragged() {
   if (col >= 0 && col < crushP.getCol() && row >= 0 && row < crushP.getRow()) {
     if(row == draggedRow+1 || row ==draggedRow -1 ||
     col == draggedCol+1 || col ==draggedCol -1)
-      if(countdown ==0){
+      //if(countdown ==0){
 
     crushP.swapCandy(draggedRow, draggedCol, row, col);
     boolean swap = crushP.eliminate();
-    System.out.println(swap);
+ //   System.out.println(swap);
     if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
  }
-        countdown += 60;
-  }
+ //swap = false;
+        //countdown += 60;
+  //}
    }
     swappedCol = draggedCol;
     swappedRow = draggedRow;
@@ -70,17 +105,25 @@ void mouseDragged() {
 
 }
 
+void keyPressed(){
+  if (key == 'r'){
+    crushP.fillPanel();
+  }
+}
+
 
 void draw(){
-  
+
   grid(crushP);
-  if(countdown > 0){
-    countdown--;
-    //System.out.println(countdown);
-  }
+  //if(countdown > 0){
+  //  countdown--;
+  //  //System.out.println(countdown);
+  //}
+  fill(0);
+    text("GOAL: " + crushP.one.getObjective() + " " + crushP.one.getType(), 0, 610);
+  text("SCORE: " + crushP.one.getScore(), 300, 610);
 
  crushP.moveDown();
-  //crushP.dropNew();
   crushP.eliminate();
   //println(crushP.one.passLevel());  
   crushP.dropNew();
@@ -88,4 +131,5 @@ void draw(){
     background(255);
     text("congrats!", 250, 250);
   }
+
 }
