@@ -5,13 +5,15 @@ int swappedRow;
 int draggedCol;
 int draggedRow;
 int countdown;
+int[] num;
+String[] type;
 
 void setup(){
   
 
   size(615, 615);
-  int[] num = {10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-  String[] type = {"blue", "green", "yellow", "orange", "red", "purple"};
+  num = new int[] {10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+  type = new String[] {"blue", "green", "yellow", "orange", "red", "purple"};
   crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)]));
   //crushP = new Panel(5,5);
   System.out.println(crushP);
@@ -83,6 +85,7 @@ void mousePressed(){
 }
 
 void mouseDragged() {
+  boolean swap = false;
   int col = (mouseX-15) / SQUARE_SIZE;
   int row = (mouseY-15) / SQUARE_SIZE;
   if (col >= 0 && col < crushP.getCol() && row >= 0 && row < crushP.getRow()) {
@@ -91,25 +94,25 @@ void mouseDragged() {
       //if(countdown ==0){
 
     crushP.swapCandy(draggedRow, draggedCol, row, col);
-    boolean swap = crushP.eliminate();
- //   System.out.println(swap);
-    if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
+    swap = crushP.eliminate();
+    System.out.println(swap);
+     if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
  }
- //swap = false;
-        //countdown += 60;
-  //}
-   }
-    swappedCol = draggedCol;
-    swappedRow = draggedRow;
-    draggedCol = col;
-    draggedRow = row;
-    
+    swap = false;
+
+}
+    draggedRow = row; draggedCol = col;
 
 }
 
 void keyPressed(){
   if (key == 'r'){
     crushP.fillPanel();
+  }
+  if (key == 'n'){
+    crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)]));
+    //System.out.println(crushP);
+    grid(crushP);
   }
 }
 
@@ -122,16 +125,20 @@ void draw(){
   //  //System.out.println(countdown);
   //}
   fill(0);
-    text("GOAL: " + crushP.one.getObjective() + " " + crushP.one.getType(), 0, 610);
-  text("SCORE: " + crushP.one.getScore(), 300, 610);
+  text("GOAL: " + crushP.one.getObjective() + "  " + crushP.one.getType(), 10, 610);
+  text("SCORE: " + crushP.one.getScore(), 250, 610);
+  text("press 'r' if you're stuck", 450, 610);
 
- crushP.moveDown();
   crushP.eliminate();
+   crushP.moveDown();
+
   //println(crushP.one.passLevel());  
   crushP.dropNew();
   if (crushP.one.passLevel()){
     background(255);
-    text("congrats!", 250, 250);
+    fill(0);
+    text("congrats!", 275, 300);
+    text("press 'n' to proceed play again!", 275, 310);
   }
 
 }

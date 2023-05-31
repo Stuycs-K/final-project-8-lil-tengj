@@ -67,9 +67,10 @@ public class Panel{
   public void swapCandy(int row1, int col1, int row2, int col2){
      if (col1 >= 0 && col1 < getCol() && row1 >= 0 && row1 < getRow() &&
      col2 >= 0 && col2 <getCol() && row2 >= 0 && row2 < getRow()) {
+       if(((col1 == col2 +1 || col1 == col2 -1)&& row1 == row2) || ((row1 == row2+1 || row1 == row2-1) && col1==col2)){
     Candy cur = board[row1][col1];
     board[row1][col1] = board[row2][col2];
-    board[row2][col2] = cur;}
+    board[row2][col2] = cur;}}
   }
   
   public String toString(){
@@ -104,9 +105,9 @@ public class Panel{
   }
   
   public boolean eliminate (){
-    boolean result = true;
-    if(eliminate5()) result = true;
-    if(eliminate4()) result = true;
+    boolean result = false;
+    if(eliminate5()) return true;
+    if(eliminate4()) return true;;
     for (int i = 0; i < board.length - 2; i++){
       for (int j = 0; j < board[0].length; j++){
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
@@ -117,9 +118,9 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i + 1][j] = new Candy ("blank");
             board[i + 2][j] = new Candy ("blank");
+            result = true;
             break;
             }
-        else result = false;
       }
     }
     for (int i = 0; i < board.length; i++){
