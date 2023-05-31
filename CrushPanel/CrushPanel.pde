@@ -10,7 +10,9 @@ void setup(){
   
 
   size(615, 615);
-  crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, 10, new Candy("blue"));
+  int[] num = {10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
+  String[] type = {"blue", "green", "yellow", "orange", "red", "purple"};
+  crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)]));
   //crushP = new Panel(5,5);
   System.out.println(crushP);
 }
@@ -101,14 +103,23 @@ void mouseDragged() {
 
 }
 
+void keyPressed(){
+  if (key == 'r'){
+    crushP.fillPanel();
+  }
+}
+
 
 void draw(){
-  
+
   grid(crushP);
   //if(countdown > 0){
   //  countdown--;
   //  //System.out.println(countdown);
   //}
+  fill(0);
+    text("GOAL: " + crushP.one.getObjective() + " " + crushP.one.getType(), 0, 610);
+  text("SCORE: " + crushP.one.getScore(), 300, 610);
 
   crushP.eliminate();
    crushP.moveDown();
