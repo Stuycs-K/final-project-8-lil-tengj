@@ -81,6 +81,7 @@ void mousePressed(){
 }
 
 void mouseDragged() {
+  boolean swap = false;
   int col = (mouseX-15) / SQUARE_SIZE;
   int row = (mouseY-15) / SQUARE_SIZE;
   if (col >= 0 && col < crushP.getCol() && row >= 0 && row < crushP.getRow()) {
@@ -89,19 +90,14 @@ void mouseDragged() {
       //if(countdown ==0){
 
     crushP.swapCandy(draggedRow, draggedCol, row, col);
-    boolean swap = crushP.eliminate();
- //   System.out.println(swap);
-    if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
+    swap = crushP.eliminate();
+    System.out.println(swap);
+     if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
  }
- //swap = false;
-        //countdown += 60;
-  //}
-   }
-    swappedCol = draggedCol;
-    swappedRow = draggedRow;
-    draggedCol = col;
-    draggedRow = row;
-    
+    swap = false;
+
+}
+    draggedRow = row; draggedCol = col;
 
 }
 
@@ -114,8 +110,9 @@ void draw(){
   //  //System.out.println(countdown);
   //}
 
- crushP.moveDown();
   crushP.eliminate();
+   crushP.moveDown();
+
   //println(crushP.one.passLevel());  
   crushP.dropNew();
   if (crushP.one.passLevel()){
