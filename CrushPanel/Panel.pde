@@ -105,15 +105,9 @@ public class Panel{
   }
   
   public boolean eliminate (){
-<<<<<<< HEAD
     boolean result = false;
     if(eliminate5()) return true;
     if(eliminate4()) return true;;
-=======
-    boolean result = true;
-    if(eliminate5()) result = true;
-    if(eliminate4()) result = true;
->>>>>>> d2943a907fcd8615c7f4c5f337c38b8cf23d798b
     for (int i = 0; i < board.length - 2; i++){
       for (int j = 0; j < board[0].length; j++){
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
@@ -124,11 +118,8 @@ public class Panel{
             board[i][j] = new Candy ("blank");
             board[i + 1][j] = new Candy ("blank");
             board[i + 2][j] = new Candy ("blank");
-<<<<<<< HEAD
             result = true;
-=======
             break;
->>>>>>> d2943a907fcd8615c7f4c5f337c38b8cf23d798b
             }
       }
     }
