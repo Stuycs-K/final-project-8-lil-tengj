@@ -108,7 +108,10 @@ public class Panel{
     boolean result = false;
     if(eliminate5()) return true;
     if(eliminate4()) return true;;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ee387d500d2e17d9e10d7aae776949bf4882dcf
     for (int i = 0; i < board.length - 2; i++){
       for (int j = 0; j < board[0].length; j++){
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
