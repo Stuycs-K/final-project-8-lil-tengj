@@ -1,14 +1,18 @@
+import processing.sound.*;
 Panel crushP;
 static final int SQUARE_SIZE = 100;//this is a constant.
-int swappedCol;
-int swappedRow;
+
 int draggedCol;
 int draggedRow;
 int countdown;
+SoundFile eliminate;
+SoundFile cantSwap;
+
 
 void setup(){
   
-
+  eliminate = new SoundFile(this, "moneyInSound.wav");
+  cantSwap = new SoundFile(this, "errorSound.wav");
   size(615, 615);
   int[] num = {10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
   String[] type = {"blue", "green", "yellow", "orange", "red", "purple"};
@@ -74,6 +78,8 @@ void grid(Panel crushP) {
 }
 
 void mousePressed(){
+    //eliminate = new SoundFile(this, "moneyInSound.mp3");
+
   int col = (mouseX -15) / SQUARE_SIZE;
   int row = (mouseY -15)/ SQUARE_SIZE;
   if (col >= 0 && col < crushP.getCol()&& row >= 0 && row < crushP.getRow()) {
@@ -95,7 +101,9 @@ void mouseDragged() {
     swap = crushP.eliminate();
     System.out.println(swap);
      if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
+     //cantSwap.play();
  }
+   else eliminate.play();
     swap = false;
 
 }
@@ -121,7 +129,7 @@ void draw(){
     text("GOAL: " + crushP.one.getObjective() + " " + crushP.one.getType(), 0, 610);
   text("SCORE: " + crushP.one.getScore(), 300, 610);
 
-  crushP.eliminate();
+  if(crushP.eliminate()) eliminate.play();
    crushP.moveDown();
 
   //println(crushP.one.passLevel());  
