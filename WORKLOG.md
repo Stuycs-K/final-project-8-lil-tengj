@@ -23,7 +23,21 @@ eliminate4,5() method; Level Class
 instantiated level in Panel; add score() method
 
 ### May 29th
+
 displaying score and goal
+
+### May 30th
+
+display goal and score; help button
+
+### May 31st
+
+randomize levels; play again button
+
+### June 1st
+
+fix wording; work log
+
 
 ## Juntao Teng
 
@@ -37,7 +51,7 @@ Panel toString(); draw() Panel
 
 ### May 24th
 
-Candy swap() method; moveDown() inprogress
+Candy swap() method; moveDown() in progress
 
 ### May 25th
 
@@ -50,3 +64,15 @@ solving merge conflict; swap back buildin;
 ### May 29th
 
 images added
+
+### May 30th
+
+work Log
+
+### May 31st
+
+debugging code; working on sounds
+
+### June 1st
+
+sound effects; readme
