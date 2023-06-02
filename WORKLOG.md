@@ -62,16 +62,15 @@ moveDown(); dropNew() methods
 solving merge conflict; swap back buildin;
 
 ### May 29th
-
-images added
+images added to replace the colored rectangle
 
 ### May 30th
 
-work Log
+work log
 
 ### May 31st
 
-debugging code; working on sounds
+debugging code; elimination sound effect added
 
 ### June 1st
 
