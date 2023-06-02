@@ -1,5 +1,5 @@
 # APCS Final Project
-THIS DOCUMENT IS REQUIRED
+
 ## Group Info
 PERIOD 8
 Juntao Teng, Lisa Li
