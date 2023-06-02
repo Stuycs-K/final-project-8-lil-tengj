@@ -5,14 +5,11 @@ static final int SQUARE_SIZE = 100;//this is a constant.
 int draggedCol;
 int draggedRow;
 int countdown;
-<<<<<<< HEAD
 SoundFile eliminate;
 SoundFile cantSwap;
 
-=======
 int[] num;
 String[] type;
->>>>>>> 9ee387d500d2e17d9e10d7aae776949bf4882dcf
 
 void setup(){
   
