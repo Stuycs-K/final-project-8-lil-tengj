@@ -49,4 +49,7 @@ solving merge conflict; swap back buildin;
 
 ### May 29th
 
-images added
+images added to replace the colored rectangle
+
+### May 30th
+elimination sound effect added
