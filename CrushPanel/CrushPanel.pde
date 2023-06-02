@@ -7,10 +7,6 @@ int draggedRow;
 int countdown;
 SoundFile eliminate;
 SoundFile cantSwap;
-<<<<<<< HEAD
-=======
-
->>>>>>> 660b0279513a1e3382ad09131da2b4814a991d7c
 int[] num;
 String[] type;
 
