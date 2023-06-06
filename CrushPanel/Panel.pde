@@ -171,7 +171,7 @@ public class Panel{
            if (board[i][j].getName().equals(one.getType())){
               one.addScore(4);
             }
-           board[i][j] = new Candy ("blank");
+           board[i][j] = new SpecialCandy (one.getType(), "verticalStripe");
            board[i + 1][j] = new Candy ("blank");
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
@@ -188,7 +188,7 @@ public class Panel{
             if (board[i][j].getName().equals(one.getType())){
               one.addScore(4);
             }
-            board[i][j] = new Candy ("blank");
+            board[i][j] = new SpecialCandy (one.getType(), "horizontalStripe");
             board[i][j + 1] = new Candy ("blank");
             board[i][j + 2] = new Candy ("blank");
             board[i][j + 3] = new Candy ("blank");
@@ -212,7 +212,7 @@ public class Panel{
             if (board[i][j].getName().equals(one.getType())){
               one.addScore(5);
             }
-           board[i][j] = new Candy ("blank");
+           board[i][j] = new SpecialCandy (one.getType(), "colourBomb");
            board[i + 1][j] = new Candy ("blank");
            board[i + 2][j] = new Candy ("blank");
            board[i + 3][j] = new Candy ("blank");
@@ -231,7 +231,7 @@ public class Panel{
             if (board[i][j].getName().equals(one.getType())){
               one.addScore(5);
             }
-           board[i][j] = new Candy ("blank");
+           board[i][j] = new SpecialCandy (one.getType(), "colourBomb");
            board[i][j + 1] = new Candy ("blank");
            board[i][j + 2] = new Candy ("blank");
            board[i][j + 3] = new Candy ("blank");
