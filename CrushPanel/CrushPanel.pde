@@ -57,46 +57,22 @@ void grid(Panel crushP) {
         Candy c = crushP.getCandy(x,y);
         if (!c.getPower().equals("colourBomb")){
           if(c.getName().equals("blue")){
-            if (c.getPower().equals("verticalStripe")){
-              
-            } else if (c.getPower().equals("horizontalStripe")){
-              
-            } else image(blueC, i, j);
+            image(blueC, i, j);
           }
           if(c.getName().equals("red")){
-            if (c.getPower().equals("verticalStripe")){
-              
-            } else if (c.getPower().equals("horizontalStripe")){
-              
-            } else image(redC, i, j);
+            image(redC, i, j);
           }
           if(c.getName().equals("yellow")){
-            if (c.getPower().equals("verticalStripe")){
-              
-            } else if (c.getPower().equals("horizontalStripe")){
-              
-            } else image(yellowC, i, j);
+            image(yellowC, i, j);
           }
           if(c.getName().equals("green")){
-            if (c.getPower().equals("verticalStripe")){
-              
-            } else if (c.getPower().equals("horizontalStripe")){
-              
-            } else image(greenC, i, j);
+            image(greenC, i, j);
           }
           if(c.getName().equals("purple")){
-            if (c.getPower().equals("verticalStripe")){
-              
-            } else if (c.getPower().equals("horizontalStripe")){
-              
-            } else image(purpleC, i, j);
+            image(purpleC, i, j);
           }
           if(c.getName().equals("orange")){
-            if (c.getPower().equals("verticalStripe")){
-              
-            } else if (c.getPower().equals("horizontalStripe")){
-              
-            } else image(orangeC, i, j);
+            image(orangeC, i, j);
           }
         } else {
           //colourBomb image
