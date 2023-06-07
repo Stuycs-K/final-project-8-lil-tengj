@@ -7,7 +7,6 @@ int draggedRow;
 int countdown;
 SoundFile eliminate;
 SoundFile cantSwap;
-
 int[] num;
 String[] type;
 PImage backg;
@@ -131,7 +130,6 @@ void keyPressed(){
 
 void draw(){
   background(backg);
-
   grid(crushP);
   //if(countdown > 0){
   //  countdown--;
@@ -151,7 +149,7 @@ void draw(){
     background(255);
     fill(0);
     text("congrats!", 275, 300);
-    text("press 'n' to proceed play again!", 275, 310);
+    text("press 'n' to play again!", 275, 310);
   }
 
 }
