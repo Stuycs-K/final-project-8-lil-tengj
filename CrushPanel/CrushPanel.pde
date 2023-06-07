@@ -9,6 +9,7 @@ SoundFile eliminate;
 SoundFile cantSwap;
 int[] num;
 String[] type;
+PImage backg;
 
 void setup(){
   
@@ -20,23 +21,26 @@ void setup(){
   crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)], "powerless"));
   //crushP = new Panel(5,5);
   System.out.println(crushP);
+  backg = loadImage("CandyCrushBackG.jpg");
+  backg.resize(width,height);
+  background(backg);
 }
 
 
 void grid(Panel crushP) {
-  PImage blueC = loadImage("blueC.png");
+
+  PImage blueC = loadImage("BluecandyHTML5.png");
   blueC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage redC = loadImage("redC.png");
+  PImage redC = loadImage("RedcandyHTML5.png");
   redC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage orangeC = loadImage("orangeC.png");
+  PImage orangeC = loadImage("OrangecandyHTML5.png");
   orangeC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage yellowC = loadImage("yellowC.png");
+  PImage yellowC = loadImage("YellowcandyHTML5.png");
   yellowC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage greenC = loadImage("greenC.png");
+  PImage greenC = loadImage("GreencandyHTML5.png");
   greenC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage purpleC = loadImage("purpleC.png");
+  PImage purpleC = loadImage("PurplecandyHTML5.png");
   purpleC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  background(255);
   //fill(0);
   stroke(255);
   //strokeWeight(15);
@@ -153,6 +157,7 @@ void keyPressed(){
 
 
 void draw(){
+  background(backg);
   grid(crushP);
   //if(countdown > 0){
   //  countdown--;
