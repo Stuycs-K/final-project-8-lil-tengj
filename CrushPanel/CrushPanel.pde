@@ -23,7 +23,8 @@ void setup(){
   size(625, 625);
   num = new int[] {10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
   type = new String[] {"blue", "green", "yellow", "orange", "red", "purple"};
-  crushP = new Panel((height -25)/ SQUARE_SIZE, (width -25)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)]));
+
+  crushP = new Panel((height -25)/ SQUARE_SIZE, (width -25)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)], "powerless"));
   //crushP = new Panel(5,5);
   System.out.println(crushP);
   backg = loadImage("CandyCrushBackG.jpg");
@@ -37,7 +38,8 @@ void setup(){
 
 
 void grid(Panel crushP) {
-
+  PImage colourBomb = loadImage("colorfulCandy.png");
+  colourBomb.resize(SQUARE_SIZE,SQUARE_SIZE);
   PImage blueC = loadImage("BluecandyHTML5.png");
   blueC.resize(SQUARE_SIZE,SQUARE_SIZE);
   PImage redC = loadImage("RedcandyHTML5.png");
@@ -64,26 +66,53 @@ void grid(Panel crushP) {
         y=0;
       }
         Candy c = crushP.getCandy(x,y);
-        if(c.getName().equals("blue")){
-          image(blueC, i, j);
+        if (!c.getPower().equals("colourBomb")){
+          if(c.getName().equals("blue")){
+            if (c.getPower().equals("verticalStripe")){
+              
+            } else if (c.getPower().equals("horizontalStripe")){
+              
+            } else image(blueC, i, j);
+          }
+          if(c.getName().equals("red")){
+            if (c.getPower().equals("verticalStripe")){
+              
+            } else if (c.getPower().equals("horizontalStripe")){
+              
+            } else image(redC, i, j);
+          }
+          if(c.getName().equals("yellow")){
+            if (c.getPower().equals("verticalStripe")){
+              
+            } else if (c.getPower().equals("horizontalStripe")){
+              
+            } else image(yellowC, i, j);
+          }
+          if(c.getName().equals("green")){
+            if (c.getPower().equals("verticalStripe")){
+              
+            } else if (c.getPower().equals("horizontalStripe")){
+              
+            } else image(greenC, i, j);
+          }
+          if(c.getName().equals("purple")){
+            if (c.getPower().equals("verticalStripe")){
+              
+            } else if (c.getPower().equals("horizontalStripe")){
+              
+            } else image(purpleC, i, j);
+          }
+          if(c.getName().equals("orange")){
+            if (c.getPower().equals("verticalStripe")){
+              
+            } else if (c.getPower().equals("horizontalStripe")){
+              
+            } else image(orangeC, i, j);
+          } 
         }
-         if(c.getName().equals("red")){
-          image(redC, i, j);
+        else{
+           image(colourBomb,i,j);
         }
-         if(c.getName().equals("yellow")){
-          image(yellowC, i, j);
-        }
-         if(c.getName().equals("green")){
-          image(greenC, i, j);
-        }
-         if(c.getName().equals("purple")){
-          image(purpleC, i, j);
-        }
-         if(c.getName().equals("orange")){
-          image(orangeC, i, j);
-        }
-        //c.buildCandy();
-        //rect(i, j, SQUARE_SIZE, SQUARE_SIZE);
         x++;
     }
     y++;
@@ -136,7 +165,7 @@ void keyPressed(){
     crushP.fillPanel();
   }
   if (key == 'n'){
-    crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)]));
+    crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)], "powerless"));
     //System.out.println(crushP);
     grid(crushP);
   }}
