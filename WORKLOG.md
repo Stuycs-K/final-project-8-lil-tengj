@@ -75,3 +75,12 @@ debugging code; elimination sound effect added
 ### June 1st
 
 sound effects; readme
+
+### June 4rd
+trying to blend the candy image
+
+### June 6th
+background with transparent candy background
+
+### June 7th
+starting menu, game menu, wining menu, and BGM
