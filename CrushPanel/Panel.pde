@@ -233,9 +233,9 @@ public class Panel{
              board[i][j].getName().equals(board[i][j + 2].getName()) &&
              board[i][j].getName().equals(board[i][j + 3].getName()) &&
              board[i][j].getName().equals(board[i][j + 4].getName())){ //5 in a row
+            int special = bomb(board[i][j]);
             if (board[i][j].getName().equals(one.getType())){
-              one.addScore(5);
-              bomb(board[i][j]);
+              one.addScore(5 + special);
             }
            board[i][j] = new Candy (one.getType(), "colourBomb");
            board[i][j + 1] = new Candy ("blank", "powerless");
@@ -250,19 +250,19 @@ public class Panel{
     return result;
   }
   
-  private void bomb (Candy a){
-    if (eliminate()){
+  private int bomb (Candy a){
+    int count = 0;
+    if (a.getPower().equals("colourBomb")){
       for (int i = 0; i < board.length; i++){
         for (int j = 0; j < board[0].length; j++){
-          if (a.getPower().equals("colourBomb")){
-            if (board[i][j].getName().equals(a.getName())){
-              board[i][j] = new Candy("blank", "powerless");
-              one.addScore(1);
-            }
+          if (board[i][j].getName().equals(a.getName())){
+            board[i][j] = new Candy("blank", "powerless");
+            count++;
           }
         }
       }
     }
+    return count;
   }
   
 }
