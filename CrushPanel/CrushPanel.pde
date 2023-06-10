@@ -92,7 +92,7 @@ void setup() {
   size(625, 625);
   type = new String[] {"blue", "green", "yellow", "orange", "red", "purple"};
 
-  crushP = new Panel((height -25)/ SQUARE_SIZE, (width -25)/SQUARE_SIZE, (int)(Math.random()*10 +20 ), new Candy(type[(int)(Math.random()*6)], "powerless"));
+  crushP = new Panel((height -25)/ SQUARE_SIZE, (width -25)/SQUARE_SIZE, (int)(Math.random()*10 +10 ), new Candy(type[(int)(Math.random()*6)], "powerless"));
   //crushP = new Panel(5,5);
   System.out.println(crushP);
   backg = loadImage("CandyCrushBackG.jpg");
@@ -322,6 +322,8 @@ void draw() {
 }
 
 void levelSound(){
+  BGM.stop();
+  eliminate.stop();  
   countdown = 120;
   levelwin.play();
 }
