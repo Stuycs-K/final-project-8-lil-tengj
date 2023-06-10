@@ -71,6 +71,27 @@ public class Panel{
     Candy cur = board[row1][col1];
     board[row1][col1] = board[row2][col2];
     board[row2][col2] = cur;}}
+    if (board[row1][col1].getPower().equals("colourBomb") || board[row2][col2].getPower().equals("colourBomb")){
+      if (board[row1][col1].getPower().equals("colourBomb")){
+        for (int i = 0; i < board.length; i++){
+          for (int j = 0; j < board[0].length; j++){
+            if (board[i][j].getName().equals(board[row2][col2].getName())){
+              board[i][j] = new Candy ("blank", "powerless");
+            }
+          }
+        }
+        board[row1][col1] = new Candy("blank", "powerless");
+      } else {
+        for (int i = 0; i < board.length; i++){
+          for (int j = 0; j < board[0].length; j++){
+            if (board[i][j].getName().equals(board[row1][col1].getName())){
+              board[i][j] = new Candy ("blank", "powerless");
+            }
+          }
+        }
+        board[row2][col2] = new Candy("blank", "powerless");
+      }
+    }
   }
   
   public String toString(){
@@ -167,33 +188,10 @@ public class Panel{
       for (int j = 0; j < board[0].length; j++){
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
             board[i][j].getName().equals(board[i + 2][j].getName()) &&
-            board[i][j].getName().equals(board[i + 3][j].getName())
-            ||
-             board[i][j].getPower().equals("colourBomb") &&
-             board[i + 1][j].getName().equals(board[i + 2][j].getName()) &&
-             board[i + 1][j].getName().equals(board[i + 3][j].getName())
-             ||
-             board[i + 1][j].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i + 2][j].getName()) &&
-             board[i][j].getName().equals(board[i + 3][j].getName()) 
-             ||
-             board[i + 2][j].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i + 1][j].getName()) && 
-             board[i][j].getName().equals(board[i + 3][j].getName()) 
-             ||
-             board[i + 3][j].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i + 1][j].getName()) && 
-             board[i][j].getName().equals(board[i + 2][j].getName()) 
-            ){ //4 in a col
-            int special = 0;
-            while (special == 0){
-              special = bomb(board[i][j]);
-              special = bomb(board[i + 1][j]);
-              special = bomb(board[i + 2][j]);
-              special = bomb(board[i + 3][j]);
-            }
-           if (board[i][j].getName().equals(one.getType()) || board[i][j].getName().equals("blank")){
-              one.addScore(4 + special);
+            board[i][j].getName().equals(board[i + 3][j].getName())){ //4 in a col
+            
+           if (board[i][j].getName().equals(one.getType())){
+              one.addScore(4);
             }
            board[i][j] = new Candy ("blank", "powerless");
            board[i + 1][j] = new Candy ("blank", "powerless");
@@ -208,34 +206,10 @@ public class Panel{
       for (int j = 0; j < board[0].length - 3; j++){
          if (board[i][j].getName().equals(board[i][j + 1].getName()) && 
              board[i][j].getName().equals(board[i][j + 2].getName()) &&
-             board[i][j].getName().equals(board[i][j + 3].getName())
-             ||
-             board[i][j].getPower().equals("colourBomb") &&
-             board[i][j + 1].getName().equals(board[i][j + 2].getName()) &&
-             board[i][j + 1].getName().equals(board[i][j + 3].getName())
-             ||
-             board[i][j + 1].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i][j + 2].getName()) &&
-             board[i][j].getName().equals(board[i][j + 3].getName()) 
-             ||
-             board[i][j + 2].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i][j + 1].getName()) && 
-             board[i][j].getName().equals(board[i][j + 3].getName())
-             ||
-             board[i][j + 3].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i][j + 1].getName()) && 
-             board[i][j].getName().equals(board[i][j + 2].getName())
-             )
-             { //4 in a row
-             int special = 0;
-            while (special == 0){
-              special = bomb(board[i][j]);
-              special = bomb(board[i][j + 1]);
-              special = bomb(board[i][j + 2]);
-              special = bomb(board[i][j + 3]);
-            }
-            if (board[i][j].getName().equals(one.getType()) || board[i][j].getName().equals("blank")){
-              one.addScore(4 + special);
+             board[i][j].getName().equals(board[i][j + 3].getName())){ //4 in a row
+            
+            if (board[i][j].getName().equals(one.getType())){
+              one.addScore(4);
             }
             board[i][j] = new Candy ("blank", "powerless");
             board[i][j + 1] = new Candy ("blank", "powerless");
@@ -257,45 +231,12 @@ public class Panel{
         if (board[i][j].getName().equals(board[i + 1][j].getName()) && 
             board[i][j].getName().equals(board[i + 2][j].getName()) &&
             board[i][j].getName().equals(board[i + 3][j].getName()) &&
-            board[i][j].getName().equals(board[i + 4][j].getName())
-            ||
-             board[i][j].getPower().equals("colourBomb") &&
-             board[i + 1][j].getName().equals(board[i + 2][j].getName()) &&
-             board[i + 1][j].getName().equals(board[i + 3][j].getName()) &&
-             board[i + 1][j].getName().equals(board[i + 4][j].getName())
-             ||
-             board[i + 1][j].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i + 2][j].getName()) &&
-             board[i][j].getName().equals(board[i + 3][j].getName()) &&
-             board[i][j].getName().equals(board[i + 4][j].getName())
-             ||
-             board[i + 2][j].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i + 1][j].getName()) && 
-             board[i][j].getName().equals(board[i + 3][j].getName()) &&
-             board[i][j].getName().equals(board[i + 4][j].getName())
-             ||
-             board[i + 3][j].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i + 1][j].getName()) && 
-             board[i][j].getName().equals(board[i + 2][j].getName()) &&
-             board[i][j].getName().equals(board[i + 4][j].getName()) 
-             ||
-             board[i + 4][j].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i + 1][j].getName()) && 
-             board[i][j].getName().equals(board[i + 2][j].getName()) &&
-             board[i][j].getName().equals(board[i + 3][j].getName())
-            ){ //5 in a col
-            int special = 0;
-            while (special == 0){
-              special = bomb(board[i][j]);
-              special = bomb(board[i + 1][j]);
-              special = bomb(board[i + 2][j]);
-              special = bomb(board[i + 3][j]);
-              special = bomb(board[i + 4][j]);
+            board[i][j].getName().equals(board[i + 4][j].getName())){ //5 in a col
+           
+            if (board[i][j].getName().equals(one.getType())){
+              one.addScore(5);
             }
-            if (board[i][j].getName().equals(one.getType()) || board[i][j].getName().equals("blank")){
-              one.addScore(4 + special);
-            }
-           board[i][j] = new Candy ("blank", "colourBomb");
+           board[i][j] = new Candy (one.getType(), "colourBomb");
            board[i + 1][j] = new Candy ("blank", "powerless");
            board[i + 2][j] = new Candy ("blank", "powerless");
            board[i + 3][j] = new Candy ("blank", "powerless");
@@ -310,45 +251,12 @@ public class Panel{
          if (board[i][j].getName().equals(board[i][j + 1].getName()) && 
              board[i][j].getName().equals(board[i][j + 2].getName()) &&
              board[i][j].getName().equals(board[i][j + 3].getName()) &&
-             board[i][j].getName().equals(board[i][j + 4].getName()) 
-             ||
-             board[i][j].getPower().equals("colourBomb") &&
-             board[i][j + 1].getName().equals(board[i][j + 2].getName()) &&
-             board[i][j + 1].getName().equals(board[i][j + 3].getName()) &&
-             board[i][j + 1].getName().equals(board[i][j + 4].getName())
-             ||
-             board[i][j + 1].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i][j + 2].getName()) &&
-             board[i][j].getName().equals(board[i][j + 3].getName()) &&
-             board[i][j].getName().equals(board[i][j + 4].getName())
-             ||
-             board[i][j + 2].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i][j + 1].getName()) && 
-             board[i][j].getName().equals(board[i][j + 3].getName()) &&
-             board[i][j].getName().equals(board[i][j + 4].getName())
-             ||
-             board[i][j + 3].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i][j + 1].getName()) && 
-             board[i][j].getName().equals(board[i][j + 2].getName()) &&
-             board[i][j].getName().equals(board[i][j + 4].getName())
-             ||
-             board[i][j + 4].getPower().equals("colourBomb") &&
-             board[i][j].getName().equals(board[i][j + 1].getName()) && 
-             board[i][j].getName().equals(board[i][j + 2].getName()) &&
-             board[i][j].getName().equals(board[i][j + 3].getName())
-             ){ //5 in a row
-            int special = 0;
-            while (special == 0){
-              special = bomb(board[i][j]);
-              special = bomb(board[i][j + 1]);
-              special = bomb(board[i][j + 2]);
-              special = bomb(board[i][j + 3]);
-              special = bomb(board[i][j + 4]);
+             board[i][j].getName().equals(board[i][j + 4].getName())){ //5 in a row
+            
+            if (board[i][j].getName().equals(one.getType())){
+              one.addScore(5);
             }
-            if (board[i][j].getName().equals(one.getType()) || board[i][j].getName().equals("blank")){
-              one.addScore(4 + special);
-            }
-           board[i][j] = new Candy ("blank", "colourBomb");
+           board[i][j] = new Candy (one.getType(), "colourBomb");
            board[i][j + 1] = new Candy ("blank", "powerless");
            board[i][j + 2] = new Candy ("blank", "powerless");
            board[i][j + 3] = new Candy ("blank", "powerless");
@@ -363,7 +271,6 @@ public class Panel{
   
   private int bomb (Candy a){
     int count = 0;
-    if (a.getPower().equals("colourBomb")){
       for (int i = 0; i < board.length; i++){
         for (int j = 0; j < board[0].length; j++){
           if (board[i][j].getName().equals(a.getName())){
@@ -372,7 +279,6 @@ public class Panel{
           }
         }
       }
-    }
     return count;
   }
   
