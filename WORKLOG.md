@@ -36,7 +36,27 @@ randomize levels; play again button
 
 ### June 1st
 
-fix wording; work log
+fix wording; work log; demo branch
+
+### June 5th
+
+created the SpecialCandy Class
+
+### June 6th
+
+moved SpecialCandy class properties to Candy class to not typecast
+
+### June 7th
+
+started working on colourBomb
+
+### June 8th
+
+bomb method - activates colourBomb
+
+### June 9th
+
+added colourBomb to swap; work log
 
 
 ## Juntao Teng
@@ -76,11 +96,22 @@ debugging code; elimination sound effect added
 
 sound effects; readme
 
-### June 4rd
+### June 4th
+
 trying to blend the candy image
 
 ### June 6th
+
 background with transparent candy background
 
 ### June 7th
+
 starting menu, game menu, wining menu, and BGM
+
+### June 8th
+
+special candy images added
+
+### June 9th
+
+level win sound effect; different level difficulties
