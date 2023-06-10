@@ -193,7 +193,7 @@ public class Panel{
            if (board[i][j].getName().equals(one.getType())){
               one.addScore(4);
             }
-           board[i][j] = new Candy ("blank", "powerless");
+           board[i][j] = new Candy (board[i][j].getName(), "verticalStripe");
            board[i + 1][j] = new Candy ("blank", "powerless");
            board[i + 2][j] = new Candy ("blank", "powerless");
            board[i + 3][j] = new Candy ("blank", "powerless");
@@ -211,7 +211,7 @@ public class Panel{
             if (board[i][j].getName().equals(one.getType())){
               one.addScore(4);
             }
-            board[i][j] = new Candy ("blank", "powerless");
+            board[i][j] = new Candy (board[i][j].getName(), "horizontalStripe");
             board[i][j + 1] = new Candy ("blank", "powerless");
             board[i][j + 2] = new Candy ("blank", "powerless");
             board[i][j + 3] = new Candy ("blank", "powerless");

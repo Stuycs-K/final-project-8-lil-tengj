@@ -1,6 +1,6 @@
 import processing.sound.*;
 Panel crushP;
-static final int SQUARE_SIZE = 100;//this is a constant.
+static final int SQUARE_SIZE = 60;//this is a constant.
 
 int MODE = 0;
 int draggedCol;
@@ -13,7 +13,34 @@ int[] num;
 String[] type;
 PImage backg;
 PImage winP;
+PImage blueC; PImage redC; PImage orangeC; PImage colourBomb; PImage yellowC; PImage greenC; PImage purpleC;
+PImage StripedBlueH; PImage StripedBlueV; PImage StripedGreenH; PImage StripedGreenV;
+PImage StripedOrangeH; PImage StripedOrangeV; PImage StripedPurpleH; PImage StripedPurpleV;
+PImage StripedRedH; PImage StripedRedV; PImage StripedYellowH; PImage StripedYellowV;
+
 void setup(){
+  frameRate(30);
+  blueC = loadImage("BluecandyHTML5.png"); blueC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  redC = loadImage("RedcandyHTML5.png"); redC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  orangeC = loadImage("OrangecandyHTML5.png"); orangeC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  yellowC = loadImage("YellowcandyHTML5.png"); yellowC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  colourBomb = loadImage("colorfulCandy.png"); colourBomb.resize(SQUARE_SIZE,SQUARE_SIZE);
+  greenC = loadImage("GreencandyHTML5.png"); greenC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  purpleC = loadImage("PurplecandyHTML5.png"); purpleC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedBlueH = loadImage("Striped_blue_h.png"); StripedBlueH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedBlueV = loadImage("Striped_blue_v.png"); StripedBlueV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedGreenH = loadImage("Striped_green_h.png"); StripedGreenH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedGreenV = loadImage("Striped_green_v.png"); StripedGreenV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedOrangeH = loadImage("Striped_orange_h.png"); StripedOrangeH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedOrangeV = loadImage("Striped_orange_v.png"); StripedOrangeV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedPurpleH = loadImage("Striped_purple_h.png"); StripedPurpleH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedPurpleV = loadImage("Striped_purple_v.png"); StripedPurpleV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedRedH = loadImage("Striped_red_h.png"); StripedRedH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedRedV = loadImage("Striped_red_v.png"); StripedRedV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedYellowH = loadImage("Striped_yellow_h.png"); StripedYellowH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedYellowV = loadImage("Striped_yellow_v.png"); StripedYellowV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  
+
   eliminate = new SoundFile(this, "moneyInSound.wav");
   cantSwap = new SoundFile(this, "errorSound.wav");
   BGM = new SoundFile(this, "happyBGM.wav");
@@ -38,21 +65,6 @@ void setup(){
 
 
 void grid(Panel crushP) {
-  PImage colourBomb = loadImage("colorfulCandy.png");
-  colourBomb.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage blueC = loadImage("BluecandyHTML5.png");
-  blueC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage redC = loadImage("RedcandyHTML5.png");
-  redC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage orangeC = loadImage("OrangecandyHTML5.png");
-  orangeC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage yellowC = loadImage("YellowcandyHTML5.png");
-  yellowC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage greenC = loadImage("GreencandyHTML5.png");
-  greenC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  PImage purpleC = loadImage("PurplecandyHTML5.png");
-  purpleC.resize(SQUARE_SIZE,SQUARE_SIZE);
-  //fill(0);
   stroke(255);
   //strokeWeight(15);
   int x =0;
@@ -68,24 +80,49 @@ void grid(Panel crushP) {
         Candy c = crushP.getCandy(x,y);
         if (!c.getPower().equals("colourBomb")){
           if(c.getName().equals("blue")){
-            image(blueC, i, j);
+            if (c.getPower().equals("verticalStripe")){
+              image(StripedBlueV, i,j);
+            } else if (c.getPower().equals("horizontalStripe")){
+              image(StripedBlueH, i,j);
+            } else image(blueC, i, j);
           }
           if(c.getName().equals("red")){
-            image(redC, i, j);
+            if (c.getPower().equals("verticalStripe")){
+              image(StripedRedV, i, j);
+            } else if (c.getPower().equals("horizontalStripe")){
+              image(StripedRedH, i, j);
+            } else image(redC, i, j);
           }
           if(c.getName().equals("yellow")){
-            image(yellowC, i, j);
+            if (c.getPower().equals("verticalStripe")){
+              image(StripedYellowV, i, j);
+            } else if (c.getPower().equals("horizontalStripe")){
+              image(StripedYellowH, i, j);
+            } else image(yellowC, i, j);
           }
           if(c.getName().equals("green")){
-            image(greenC, i, j);
+            if (c.getPower().equals("verticalStripe")){
+              image(StripedGreenV,i,j);
+            } else if (c.getPower().equals("horizontalStripe")){
+              image(StripedGreenH,i,j);
+            } else image(greenC, i, j);
           }
           if(c.getName().equals("purple")){
-            image(purpleC, i, j);
+            if (c.getPower().equals("verticalStripe")){
+              image(StripedPurpleV,i,j);
+            } else if (c.getPower().equals("horizontalStripe")){
+              image(StripedPurpleH,i,j);
+            } else image(purpleC, i, j);
           }
           if(c.getName().equals("orange")){
-            image(orangeC, i, j);
-          }
-        } else{
+            if (c.getPower().equals("verticalStripe")){
+              image(StripedPurpleV,i,j);
+            } else if (c.getPower().equals("horizontalStripe")){
+              image(StripedPurpleH,i,j);
+            } else image(orangeC, i, j);
+          } 
+        }
+        else{
            image(colourBomb,i,j);
         }
         x++;
@@ -118,7 +155,7 @@ void mouseDragged() {
 
     crushP.swapCandy(draggedRow, draggedCol, row, col);
     swap = crushP.eliminate();
-    System.out.println(swap);
+    //System.out.println(swap);
      if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
      //cantSwap.play();
  }
@@ -134,7 +171,7 @@ void keyPressed(){
   if(MODE == 0){
     MODE =1;
   }
-  if(MODE ==1){
+  if(MODE !=0){
   
   if (key == 'r'){
     crushP.fillPanel();
