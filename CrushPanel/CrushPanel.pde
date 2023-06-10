@@ -1,7 +1,7 @@
 import processing.sound.*;
 Panel crushP;
-static final int SQUARE_SIZE = 60;//this is a constant.
-
+int SQUARE_SIZE = 100;
+PFont font;
 int MODE = 0;
 int draggedCol;
 int draggedRow;
@@ -11,15 +11,19 @@ SoundFile cantSwap;
 SoundFile BGM;
 int[] num;
 String[] type;
+PImage CCMenu;
 PImage backg;
 PImage winP;
 PImage blueC; PImage redC; PImage orangeC; PImage colourBomb; PImage yellowC; PImage greenC; PImage purpleC;
 PImage StripedBlueH; PImage StripedBlueV; PImage StripedGreenH; PImage StripedGreenV;
 PImage StripedOrangeH; PImage StripedOrangeV; PImage StripedPurpleH; PImage StripedPurpleV;
 PImage StripedRedH; PImage StripedRedV; PImage StripedYellowH; PImage StripedYellowV;
+int count;
+Candy powerC;
 
 void setup(){
   frameRate(30);
+  CCMenu = loadImage("StartingBG.jpg"); CCMenu.resize(width,height);
   blueC = loadImage("BluecandyHTML5.png"); blueC.resize(SQUARE_SIZE,SQUARE_SIZE);
   redC = loadImage("RedcandyHTML5.png"); redC.resize(SQUARE_SIZE,SQUARE_SIZE);
   orangeC = loadImage("OrangecandyHTML5.png"); orangeC.resize(SQUARE_SIZE,SQUARE_SIZE);
@@ -48,19 +52,25 @@ void setup(){
   winP.resize(width,height);
   BGM.loop();
   size(625, 625);
-  num = new int[] {10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
   type = new String[] {"blue", "green", "yellow", "orange", "red", "purple"};
 
-  crushP = new Panel((height -25)/ SQUARE_SIZE, (width -25)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)], "powerless"));
+  crushP = new Panel((height -25)/ SQUARE_SIZE, (width -25)/SQUARE_SIZE, (int)(Math.random()*20 + 30), new Candy(type[(int)(Math.random()*6)], "powerless"));
   //crushP = new Panel(5,5);
   System.out.println(crushP);
   backg = loadImage("CandyCrushBackG.jpg");
   backg.resize(width,height);
-  background(backg);
+  background(CCMenu);
   fill(0);
   textSize(40);
   textAlign(CENTER, CENTER);
-  text("press any key to start the game!", width/2, height/2);
+  font = loadFont("AgencyFB-Bold-48.vlw");
+  textFont(font);
+  text("press any key to start the game!", width/2, height/2 + 150);
+  textSize(26);
+  text("your goal and progess will be shown on the bottom of the screen", width/2, height/2 +200);
+  text("Select your challenge! \nVenti Press '1'  Small Press '2'",width/2, height/2 +250 );
+  
+  
 }
 
 
@@ -156,12 +166,16 @@ void mouseDragged() {
     crushP.swapCandy(draggedRow, draggedCol, row, col);
     swap = crushP.eliminate();
     //System.out.println(swap);
-     if(!swap){ crushP.swapCandy(row,col , draggedRow, draggedCol);
+     if(!swap && !(crushP.power(row,col) || crushP.power(draggedRow, draggedCol)))
+     { crushP.swapCandy(row,col , draggedRow, draggedCol);
      //cantSwap.play();
  }
    else eliminate.play();
     swap = false;
-
+    //if(crushP.power(row,col) || crushP.power(draggedRow, draggedCol)){
+    //  MODE = 2;
+    //  count = 120;
+    //}
 }
     draggedRow = row; draggedCol = col;
 
@@ -170,11 +184,36 @@ void mouseDragged() {
 void keyPressed(){
   if(MODE == 0){
     MODE =1;
+    if(key == '1'){
+      MODE = 4; //venti square size 60; goal around 60 - 100;
+      SQUARE_SIZE = 60;
+      blueC = loadImage("BluecandyHTML5.png"); blueC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  redC = loadImage("RedcandyHTML5.png"); redC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  orangeC = loadImage("OrangecandyHTML5.png"); orangeC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  yellowC = loadImage("YellowcandyHTML5.png"); yellowC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  colourBomb = loadImage("colorfulCandy.png"); colourBomb.resize(SQUARE_SIZE,SQUARE_SIZE);
+  greenC = loadImage("GreencandyHTML5.png"); greenC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  purpleC = loadImage("PurplecandyHTML5.png"); purpleC.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedBlueH = loadImage("Striped_blue_h.png"); StripedBlueH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedBlueV = loadImage("Striped_blue_v.png"); StripedBlueV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedGreenH = loadImage("Striped_green_h.png"); StripedGreenH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedGreenV = loadImage("Striped_green_v.png"); StripedGreenV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedOrangeH = loadImage("Striped_orange_h.png"); StripedOrangeH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedOrangeV = loadImage("Striped_orange_v.png"); StripedOrangeV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedPurpleH = loadImage("Striped_purple_h.png"); StripedPurpleH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedPurpleV = loadImage("Striped_purple_v.png"); StripedPurpleV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedRedH = loadImage("Striped_red_h.png"); StripedRedH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedRedV = loadImage("Striped_red_v.png"); StripedRedV.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedYellowH = loadImage("Striped_yellow_h.png"); StripedYellowH.resize(SQUARE_SIZE,SQUARE_SIZE);
+  StripedYellowV = loadImage("Striped_yellow_v.png"); StripedYellowV.resize(SQUARE_SIZE,SQUARE_SIZE);
+      crushP = new Panel((height -25)/ SQUARE_SIZE, (width -25)/SQUARE_SIZE, (int)(Math.random()*20 + 80), new Candy(type[(int)(Math.random()*6)], "powerless"));
+  }
+
   }
   if(MODE !=0){
   
   if (key == 'r'){
-    crushP.fillPanel();
+    MODE =5;
   }
   if (key == 'n'){
     crushP = new Panel((height -15)/ SQUARE_SIZE, (width -15)/SQUARE_SIZE, num[(int)(Math.random()*11)], new Candy(type[(int)(Math.random()*6)], "powerless"));
@@ -185,7 +224,23 @@ void keyPressed(){
 
 
 void draw(){
-  if(MODE ==1 ){
+  //if(MODE ==2){
+  //  background(0);
+  //  BGM.pause();
+  //  count --;
+  //}
+  //if(count < 0 && MODE!=1){
+  //  MODE =1;
+  //  BGM.play();
+  //}
+  if(MODE ==5){
+    BGM.stop();
+    MODE =0;
+    SQUARE_SIZE=100;
+    setup();
+  }
+
+  if(MODE ==1 || MODE ==4 ){
   background(backg);
   grid(crushP);
   //if(countdown > 0){
@@ -197,14 +252,13 @@ void draw(){
   textAlign(BOTTOM, BOTTOM);
   text("GOAL: " + crushP.one.getObjective() + "  " + crushP.one.getType(), 10, 620);
   text("SCORE: " + crushP.one.getScore(), 250, 620);
-  text("press 'r' if you're stuck", 410, 620);
+  text("press 'r' to return to main", 380, 620);
 
   if(crushP.eliminate()) eliminate.play();
    crushP.moveDown();
-
-  //println(crushP.one.passLevel());  
-  crushP.dropNew();
+   crushP.dropNew();
   if (crushP.one.passLevel()){
+    BGM.play();
     background(winP);
     fill(0);
     textAlign(CENTER,CENTER);
@@ -213,4 +267,15 @@ void draw(){
     text("press 'n' to play again!", 290, 320);
   }
   }
+  if(MODE == 3){
+    background(backg);
+  grid(crushP);
+  textSize(22);
+  textAlign(BOTTOM, BOTTOM);
+  text("Sooooo~~ Satisfying~~~", width/2 -100, 620);
+  if(crushP.eliminate()) eliminate.play();
+   crushP.moveDown();
+   crushP.dropNew();
+  }
+  
 }
