@@ -114,4 +114,12 @@ special candy images added
 
 ### June 9th
 
-level win sound effect; different level difficulties
+level win sound effect; different level difficulties; special candies method finished; polished graphic
+
+### June 10th
+
+fix the bug that special candy elimination will not add the to the score.
+
+### June 11th
+
+fix the bug that special candy is generated based on the objective; finalizing README.
