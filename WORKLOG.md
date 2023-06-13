@@ -19,6 +19,8 @@ broken features:
 -sometimes the audio of the game might lag when the player perform too many swapping in a short time.
 -pressing 'r' will also automatically choose the easier level.
 -can swap all special candies with any candy (even if they're not the same type).
+-special candies don't automatically eliminate even if they are able to (four of same candies in a row, but the special candy is the 2nd one, doesn't eliminate).
+-when connecting four or more in a row, the special candy formed is always the leftmost, topmost of the eliminated candies.
 
 content that's helpful:
 Sound library and Processing reference
