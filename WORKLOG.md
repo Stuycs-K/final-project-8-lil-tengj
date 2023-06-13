@@ -12,10 +12,13 @@ working features:
 -eliminating candy that's the same as the objective will be recorded
 -when the objective is met, a winning menu will show up and play music after 2 seconds.
 -sound effect when eliminate
+-add the number of candies eliminated to the score if the candies type matches.
 
 broken features:
 -sometimes the special candy's color might not be the expected color(it won't affect the power of the candy)
 -sometimes the audio of the game might lag when the player perform too many swapping in a short time.
+-pressing 'r' will also automatically choose the easier level.
+-can swap all special candies with any candy (even if they're not the same type).
 
 content that's helpful:
 Sound library and Processing reference
@@ -24,59 +27,59 @@ Sound library and Processing reference
 
 ### May 22nd
 
-Panel Class with constructors and some methods
+Created the Panel Class with constructor.
 
 ### May 23rd
 
-fillPanel() method and get() method
+Completed the fillPanel() method and get() methods, added instance variables.
 
 ### May 24th
 
-eliminate() method
+Made sure that the fillPanel() cannot create a board with three or more in a row. Started working on the eliminate() method.
 
 ### May 25th
 
-eliminate4,5() method; Level Class
+Created eliminate4,5() methods that are called in eliminate(). Started on the Level class.
 
 ### May 26th
 
-instantiated level in Panel; add score() method
+Implemented level in Panel and crushPanel. Created a addScore() method in Level.
 
 ### May 29th
 
-displaying score and goal
+Merge conflict fixes. Worked on checking if the player passed the level + victory screen.
 
 ### May 30th
 
-display goal and score; help button
+Displayed the goal and score. Made a keyPressed() method for when there are no possible candies to swap.
 
 ### May 31st
 
-randomize levels; play again button
+RandomizeD levels with different number of candies and type of candy. Created a play again button after victory screen.
 
 ### June 1st
 
-fix wording; work log; demo branch
+Fixed the wording of the victory screen. Created the demo branch.
 
 ### June 5th
 
-created the SpecialCandy Class
+Created the SpecialCandy Class with constructors.
 
 ### June 6th
 
-moved SpecialCandy class properties to Candy class to not typecast
+Combined the SpecialCandy class and the Candy class due to typecasting issues in crushP.
 
 ### June 7th
 
-started working on colourBomb
+Started working on the colourBomb candy (remove all candies of the same type). Images for the vertical and horizontal striped candies.
 
 ### June 8th
 
-bomb method - activates colourBomb
+Checked for colourBomb in eliminate() and activates colourBomb (addScore()).
 
 ### June 9th
 
-added colourBomb to swap; work log
+Due to stack overflow, moved colourBomb checking to swap() method.
 
 
 ## Juntao Teng
